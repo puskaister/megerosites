@@ -328,15 +328,15 @@ function v($val) { return htmlspecialchars($val ?? '', ENT_QUOTES, 'UTF-8'); }
       <textarea name="ceremony_intro"><?= v($content['ceremony']['intro']) ?></textarea>
 
       <div id="timelineList">
-        <?php foreach ($content['ceremony']['timeline'] as $t): ?>
+        <?php foreach ($content['ceremony']['timeline'] as $i => $t): ?>
         <div class="repeat-item">
           <button type="button" class="rm" onclick="this.parentElement.remove()">✕</button>
           <label>Időpont</label>
-          <input type="text" name="timeline[][time]" value="<?= v($t['time']) ?>" placeholder="pl. 16:00">
+          <input type="text" name="timeline[<?= $i ?>][time]" value="<?= v($t['time']) ?>" placeholder="pl. 16:00">
           <label>Esemény neve</label>
-          <input type="text" name="timeline[][title]" value="<?= v($t['title']) ?>">
+          <input type="text" name="timeline[<?= $i ?>][title]" value="<?= v($t['title']) ?>">
           <label>Leírás</label>
-          <textarea name="timeline[][desc]"><?= v($t['desc']) ?></textarea>
+          <textarea name="timeline[<?= $i ?>][desc]"><?= v($t['desc']) ?></textarea>
         </div>
         <?php endforeach; ?>
       </div>
@@ -356,19 +356,19 @@ function v($val) { return htmlspecialchars($val ?? '', ENT_QUOTES, 'UTF-8'); }
         </div>
       </div>
       <div id="venueList">
-        <?php foreach ($content['venue']['cards'] as $c): ?>
+        <?php foreach ($content['venue']['cards'] as $i => $c): ?>
         <div class="repeat-item">
           <button type="button" class="rm" onclick="this.parentElement.remove()">✕</button>
           <label>Szerepkör (pl. "Szertartás")</label>
-          <input type="text" name="venue[][role]" value="<?= v($c['role']) ?>">
+          <input type="text" name="venue[<?= $i ?>][role]" value="<?= v($c['role']) ?>">
           <label>Helyszín neve</label>
-          <input type="text" name="venue[][name]" value="<?= v($c['name']) ?>">
+          <input type="text" name="venue[<?= $i ?>][name]" value="<?= v($c['name']) ?>">
           <label>Cím</label>
-          <input type="text" name="venue[][address1]" value="<?= v($c['address1']) ?>">
+          <input type="text" name="venue[<?= $i ?>][address1]" value="<?= v($c['address1']) ?>">
           <label>Kiegészítő infó</label>
-          <input type="text" name="venue[][address2]" value="<?= v($c['address2']) ?>">
+          <input type="text" name="venue[<?= $i ?>][address2]" value="<?= v($c['address2']) ?>">
           <label>Térkép link (URL)</label>
-          <input type="text" name="venue[][mapUrl]" value="<?= v($c['mapUrl']) ?>">
+          <input type="text" name="venue[<?= $i ?>][mapUrl]" value="<?= v($c['mapUrl']) ?>">
         </div>
         <?php endforeach; ?>
       </div>
@@ -392,12 +392,12 @@ function v($val) { return htmlspecialchars($val ?? '', ENT_QUOTES, 'UTF-8'); }
 
       <label>Feltöltött képek</label>
       <div class="gallery-list">
-        <?php foreach ($content['gallery']['images'] as $img): ?>
+        <?php foreach ($content['gallery']['images'] as $i => $img): ?>
         <div class="gitem">
           <img src="<?= v($img['src']) ?>" alt="">
-          <input type="hidden" name="gallery[][src]" value="<?= v($img['src']) ?>">
+          <input type="hidden" name="gallery[<?= $i ?>][src]" value="<?= v($img['src']) ?>">
           <label>Alt szöveg</label>
-          <input type="text" name="gallery[][alt]" value="<?= v($img['alt']) ?>">
+          <input type="text" name="gallery[<?= $i ?>][alt]" value="<?= v($img['alt']) ?>">
           <div class="del">
             <input type="checkbox" name="gallery_delete[]" value="<?= v($img['src']) ?>" id="del_<?= md5($img['src']) ?>">
             <label for="del_<?= md5($img['src']) ?>" style="margin:0;">Törlés</label>
@@ -447,24 +447,29 @@ function v($val) { return htmlspecialchars($val ?? '', ENT_QUOTES, 'UTF-8'); }
 </div>
 
 <script>
+var timelineIndex = <?= count($content['ceremony']['timeline']) ?>;
+var venueIndex = <?= count($content['venue']['cards']) ?>;
+
 function addTimelineItem(){
+  var i = timelineIndex++;
   var wrap = document.createElement('div');
   wrap.className = 'repeat-item';
   wrap.innerHTML = '<button type="button" class="rm" onclick="this.parentElement.remove()">✕</button>' +
-    '<label>Időpont</label><input type="text" name="timeline[][time]" placeholder="pl. 16:00">' +
-    '<label>Esemény neve</label><input type="text" name="timeline[][title]">' +
-    '<label>Leírás</label><textarea name="timeline[][desc]"></textarea>';
+    '<label>Időpont</label><input type="text" name="timeline[' + i + '][time]" placeholder="pl. 16:00">' +
+    '<label>Esemény neve</label><input type="text" name="timeline[' + i + '][title]">' +
+    '<label>Leírás</label><textarea name="timeline[' + i + '][desc]"></textarea>';
   document.getElementById('timelineList').appendChild(wrap);
 }
 function addVenueItem(){
+  var i = venueIndex++;
   var wrap = document.createElement('div');
   wrap.className = 'repeat-item';
   wrap.innerHTML = '<button type="button" class="rm" onclick="this.parentElement.remove()">✕</button>' +
-    '<label>Szerepkör</label><input type="text" name="venue[][role]">' +
-    '<label>Helyszín neve</label><input type="text" name="venue[][name]">' +
-    '<label>Cím</label><input type="text" name="venue[][address1]">' +
-    '<label>Kiegészítő infó</label><input type="text" name="venue[][address2]">' +
-    '<label>Térkép link (URL)</label><input type="text" name="venue[][mapUrl]">';
+    '<label>Szerepkör</label><input type="text" name="venue[' + i + '][role]">' +
+    '<label>Helyszín neve</label><input type="text" name="venue[' + i + '][name]">' +
+    '<label>Cím</label><input type="text" name="venue[' + i + '][address1]">' +
+    '<label>Kiegészítő infó</label><input type="text" name="venue[' + i + '][address2]">' +
+    '<label>Térkép link (URL)</label><input type="text" name="venue[' + i + '][mapUrl]">';
   document.getElementById('venueList').appendChild(wrap);
 }
 </script>
