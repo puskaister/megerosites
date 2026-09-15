@@ -1,0 +1,52 @@
+{
+  "brandInitials": "B & S",
+  "names": { "first": "Böbe", "second": "Sándor" },
+  "eventDate": "2026. November 6.",
+  "eventDay": "Péntek",
+  "eventDateTime": "2026-11-06T15:00:00",
+  "heroSubtitle": "Miután évekkel ezelőtt igent mondtunk egymásnak, most szeretnénk ezt az ígéretet családunk és barátaink körében újra megerősíteni.",
+  "story": {
+    "eyebrow": "A mi utunk",
+    "title": "Történetünk",
+    "artMark": "2015 — ∞",
+    "paragraphs": [
+      "Tizenkét évvel ezelőtt egy közös barát esküvőjén találkoztunk először. Nem gondoltuk volna, hogy egyetlen tánc egy életre szóló történet kezdete lesz.",
+      "Azóta együtt építettünk otthont, jártunk be közös utakat, és tanultuk meg, mit jelent igazán egymásért lenni. Ez a nap arról szól, hogy mindazt, amit egymásnak ígértünk, most az önök jelenlétében is kimondjuk újra.",
+      "Köszönjük, hogy velünk ünneplik ezt a megerősítést."
+    ]
+  },
+  "ceremony": {
+    "eyebrow": "A nap rendje",
+    "title": "Szertartás & Ünneplés",
+    "intro": "Az alábbi időrend segít eligazodni a nap eseményei között — a pontos részletekről időben küldünk emlékeztetőt.",
+    "timeline": [
+      { "time": "15:00", "title": "Vendégek fogadása", "desc": "Érkezés, pezsgős koccintás a kertben, ismerkedés a többi vendéggel." },
+      { "time": "16:00", "title": "Fogadalom-megerősítő szertartás", "desc": "Az ígéretek újbóli kimondása a szabadtéri oltárnál, szeretteink körében." },
+      { "time": "17:00", "title": "Közös fotózás", "desc": "Emlékek megörökítése a családdal és a baráti társasággal." },
+      { "time": "18:30", "title": "Vacsora", "desc": "Ünnepi menü, köszöntők és pohárköszöntők." },
+      { "time": "21:00", "title": "Nyitótánc & mulatság", "desc": "Zene, tánc és ünneplés hajnalig." }
+    ]
+  },
+  "venue": {
+    "eyebrow": "Merre találnak minket",
+    "title": "Helyszín",
+    "cards": [
+      { "role": "Szertartás", "name": "Rózsakert Birtok", "address1": "2100 Gödöllő, Kastélypark utca 4.", "address2": "Szabadtéri szertartás, rossz idő esetén az üvegteremben.", "mapUrl": "#" },
+      { "role": "Vacsora & mulatság", "name": "Rózsakert Birtok — Nagyterem", "address1": "Ugyanazon a helyszínen, séta a kertből a terembe.", "address2": "Ingyenes parkoló a birtok területén.", "mapUrl": "#" }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Pillanatok",
+    "title": "Galéria",
+    "intro": "Néhány emlék az elmúlt évekből — a fotókat hamarosan feltöltjük.",
+    "images": []
+  },
+  "rsvp": {
+    "eyebrow": "Kérjük, jelezzék",
+    "title": "Részvétel visszaigazolása",
+    "deadlineText": "Örülnénk, ha 2026. október 1-ig visszajeleznének az alábbi űrlapon."
+  },
+  "footer": {
+    "line": "2026. November 6. • Gödöllő • Szeretettel várunk mindenkit"
+  }
+}

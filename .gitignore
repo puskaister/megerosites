@@ -1,0 +1,4 @@
+admin-config.php
+content.json
+uploads/*
+!uploads/.htaccess

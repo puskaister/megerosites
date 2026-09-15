@@ -23,3 +23,6 @@ jobs:
             **/.git*
             **/.git*/**
             **/.github/**
+            content.json
+            admin-config.php
+            uploads/**

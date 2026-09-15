@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Böbe &amp; Sándor — Esküvőnk</title>
+<title id="pageTitle">Böbe &amp; Sándor — Esküvőnk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -365,6 +365,7 @@
     font-size:1.6rem;
   }
   .gallery .g:nth-child(3n+1){ grid-row: span 2; aspect-ratio:auto; }
+  .gallery .g img{ width:100%; height:100%; object-fit:cover; border-radius:6px; display:block; }
   @media (max-width:720px){
     .gallery{ grid-template-columns:repeat(2,1fr); }
     .gallery .g:nth-child(3n+1){ grid-row:auto; aspect-ratio:1; }
@@ -459,7 +460,7 @@
 <body>
 
 <nav id="nav">
-  <div class="brand">B &amp; S</div>
+  <div class="brand" id="navBrand">B &amp; S</div>
   <button class="navtoggle" id="navToggle" aria-label="Menü">☰</button>
   <ul class="navlinks" id="navLinks">
     <li><a href="#tortenetunk">Történetünk</a></li>
@@ -472,12 +473,12 @@
 
 <header class="hero">
   <span class="eyebrow">Szeretettel meghívunk</span>
-  <h1 class="hero-monogram">Böbe <span>&amp;</span> Sándor</h1>
-  <p class="hero-sub">Miután évekkel ezelőtt igent mondtunk egymásnak, most szeretnénk ezt az ígéretet family és barátaink körében újra megerősíteni.</p>
+  <h1 class="hero-monogram" id="heroMonogram">Böbe <span>&amp;</span> Sándor</h1>
+  <p class="hero-sub" id="heroSubtitle">Miután évekkel ezelőtt igent mondtunk egymásnak, most szeretnénk ezt az ígéretet családunk és barátaink körében újra megerősíteni.</p>
   <div class="hero-date">
-    <span>2026. November 6.</span>
+    <span id="eventDateSpan">2026. November 6.</span>
     <span class="dot">•</span>
-    <span>Péntek</span>
+    <span id="eventDaySpan">Péntek</span>
   </div>
   <div class="scrollcue"><i></i>Görgess lejjebb</div>
 </header>
@@ -495,14 +496,12 @@
   <div class="wrap story reveal">
     <div class="story-art">
       <div class="frame"></div>
-      <span class="mark">2015 — ∞</span>
+      <span class="mark" id="storyMark">2015 — ∞</span>
     </div>
     <div class="story-text">
-      <span class="eyebrow">A mi utunk</span>
-      <h2 class="serif">Történetünk</h2>
-      <p>Tizenkét évvel ezelőtt egy közös barát esküvőjén találkoztunk először. Nem gondoltuk volna, hogy egyetlen tánc egy életre szóló történet kezdete lesz.</p>
-      <p>Azóta együtt építettünk otthont, jártunk be közös utakat, és tanultuk meg, mit jelent igazán egymásért lenni. Ez a nap arról szól, hogy mindazt, amit egymásnak ígértünk, most az önök jelenlétében is kimondjuk újra.</p>
-      <p>Köszönjük, hogy velünk ünneplik ezt a megerősítést.</p>
+      <span class="eyebrow" id="storyEyebrow">A mi utunk</span>
+      <h2 class="serif" id="storyTitle">Történetünk</h2>
+      <div id="storyParagraphs"></div>
     </div>
   </div>
 </section>
@@ -510,93 +509,45 @@
 <section id="szertartas" class="venue-alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">A nap rendje</span>
-      <h2 class="serif">Szertartás &amp; Ünneplés</h2>
+      <span class="eyebrow" id="ceremonyEyebrow">A nap rendje</span>
+      <h2 class="serif" id="ceremonyTitle">Szertartás &amp; Ünneplés</h2>
       <div class="divider"></div>
-      <p>Az alábbi időrend segít eligazodni a nap eseményei között — a pontos részletekről időben küldünk emlékeztetőt.</p>
+      <p id="ceremonyIntro">Az alábbi időrend segít eligazodni a nap eseményei között — a pontos részletekről időben küldünk emlékeztetőt.</p>
     </div>
-    <div class="timeline reveal">
-      <div class="tl-item">
-        <span class="tl-time">15:00</span>
-        <div class="tl-title">Vendégek fogadása</div>
-        <div class="tl-desc">Érkezés, pezsgős koccintás a kertben, ismerkedés a többi vendéggel.</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">16:00</span>
-        <div class="tl-title">Fogadalom-megerősítő szertartás</div>
-        <div class="tl-desc">Az ígéretek újbóli kimondása a szabadtéri oltárnál, szeretteink körében.</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">17:00</span>
-        <div class="tl-title">Közös fotózás</div>
-        <div class="tl-desc">Emlékek megörökítése a családdal és a baráti társasággal.</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">18:30</span>
-        <div class="tl-title">Vacsora</div>
-        <div class="tl-desc">Ünnepi menü, köszöntők és pohárköszöntők.</div>
-      </div>
-      <div class="tl-item">
-        <span class="tl-time">21:00</span>
-        <div class="tl-title">Nyitótánc &amp; mulatság</div>
-        <div class="tl-desc">Zene, tánc és ünneplés hajnalig.</div>
-      </div>
-    </div>
+    <div class="timeline reveal" id="timelineContainer"></div>
   </div>
 </section>
 
 <section id="helyszin">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Merre találnak minket</span>
-      <h2 class="serif">Helyszín</h2>
+      <span class="eyebrow" id="venueEyebrow">Merre találnak minket</span>
+      <h2 class="serif" id="venueTitle">Helyszín</h2>
       <div class="divider"></div>
     </div>
-    <div class="venue-grid reveal">
-      <div class="venue-card">
-        <span class="role">Szertartás</span>
-        <h3 class="serif">Rózsakert Birtok</h3>
-        <p>2100 Gödöllő, Kastélypark utca 4.</p>
-        <p>Szabadtéri szertartás, rossz idő esetén az üvegteremben.</p>
-        <a class="map" href="#">Megnyitás térképen →</a>
-      </div>
-      <div class="venue-card">
-        <span class="role">Vacsora &amp; mulatság</span>
-        <h3 class="serif">Rózsakert Birtok — Nagyterem</h3>
-        <p>Ugyanazon a helyszínen, séta a kertből a terembe.</p>
-        <p>Ingyenes parkoló a birtok területén.</p>
-        <a class="map" href="#">Megnyitás térképen →</a>
-      </div>
-    </div>
+    <div class="venue-grid reveal" id="venueGrid"></div>
   </div>
 </section>
 
 <section id="galeria" class="venue-alt">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Pillanatok</span>
-      <h2 class="serif">Galéria</h2>
+      <span class="eyebrow" id="galleryEyebrow">Pillanatok</span>
+      <h2 class="serif" id="galleryTitle">Galéria</h2>
       <div class="divider"></div>
-      <p>Néhány emlék az elmúlt évekből — a fotókat hamarosan feltöltjük.</p>
+      <p id="galleryIntro">Néhány emlék az elmúlt évekből — a fotókat hamarosan feltöltjük.</p>
     </div>
-    <div class="gallery reveal">
-      <div class="g">❦</div>
-      <div class="g">✦</div>
-      <div class="g">♡</div>
-      <div class="g">✿</div>
-      <div class="g">✦</div>
-      <div class="g">❦</div>
-    </div>
+    <div class="gallery reveal" id="galleryGrid"></div>
   </div>
 </section>
 
 <section id="visszajelzes">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Kérjük, jelezzék</span>
-      <h2 class="serif">Részvétel visszaigazolása</h2>
+      <span class="eyebrow" id="rsvpEyebrow">Kérjük, jelezzék</span>
+      <h2 class="serif" id="rsvpTitle">Részvétel visszaigazolása</h2>
       <div class="divider"></div>
-      <p>Örülnénk, ha 2026. október 1-ig visszajeleznének az alábbi űrlapon.</p>
+      <p id="rsvpDeadline">Örülnénk, ha 2026. október 1-ig visszajeleznének az alábbi űrlapon.</p>
     </div>
     <form class="rsvp-box reveal" id="rsvpForm">
       <div class="field">
@@ -625,8 +576,8 @@
 </section>
 
 <footer>
-  <div class="monogram-sm">B &amp; S</div>
-  <p>2026. November 6. &nbsp;•&nbsp; Gödöllő &nbsp;•&nbsp; Szeretettel várunk mindenkit</p>
+  <div class="monogram-sm" id="footerMonogram">B &amp; S</div>
+  <p id="footerLine">2026. November 6. &nbsp;•&nbsp; Gödöllő &nbsp;•&nbsp; Szeretettel várunk mindenkit</p>
 </footer>
 
 <script>
@@ -645,33 +596,113 @@
       a.addEventListener('click', function(){ links.classList.remove('open'); });
     });
 
-    var targetDate = new Date('2026-11-06T15:00:00');
-    function updateCountdown(){
-      var now = new Date();
-      var diff = targetDate - now;
-      if(diff < 0) diff = 0;
-      var days = Math.floor(diff / (1000*60*60*24));
-      var hours = Math.floor((diff / (1000*60*60)) % 24);
-      var mins = Math.floor((diff / (1000*60)) % 60);
-      var secs = Math.floor((diff / 1000) % 60);
-      document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
-      document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
-      document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
-      document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
-    }
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    var galleryIcons = ['❦','✦','♡','✿','✦','❦'];
 
-    var revealEls = document.querySelectorAll('.reveal');
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold:0.15 });
-    revealEls.forEach(function(el){ io.observe(el); });
+    function esc(str){
+      var d = document.createElement('div');
+      d.textContent = str == null ? '' : str;
+      return d.innerHTML;
+    }
+
+    function render(c){
+      document.getElementById('pageTitle').textContent = c.names.first + ' & ' + c.names.second + ' — Esküvőnk';
+      document.getElementById('navBrand').innerHTML = esc(c.brandInitials);
+      document.getElementById('heroMonogram').innerHTML = esc(c.names.first) + ' <span>&amp;</span> ' + esc(c.names.second);
+      document.getElementById('heroSubtitle').textContent = c.heroSubtitle;
+      document.getElementById('eventDateSpan').textContent = c.eventDate;
+      document.getElementById('eventDaySpan').textContent = c.eventDay;
+
+      document.getElementById('storyMark').textContent = c.story.artMark;
+      document.getElementById('storyEyebrow').textContent = c.story.eyebrow;
+      document.getElementById('storyTitle').textContent = c.story.title;
+      document.getElementById('storyParagraphs').innerHTML = c.story.paragraphs.map(function(p){
+        return '<p>' + esc(p) + '</p>';
+      }).join('');
+
+      document.getElementById('ceremonyEyebrow').textContent = c.ceremony.eyebrow;
+      document.getElementById('ceremonyTitle').innerHTML = esc(c.ceremony.title);
+      document.getElementById('ceremonyIntro').textContent = c.ceremony.intro;
+      document.getElementById('timelineContainer').innerHTML = c.ceremony.timeline.map(function(t){
+        return '<div class="tl-item">' +
+          '<span class="tl-time">' + esc(t.time) + '</span>' +
+          '<div class="tl-title">' + esc(t.title) + '</div>' +
+          '<div class="tl-desc">' + esc(t.desc) + '</div>' +
+        '</div>';
+      }).join('');
+
+      document.getElementById('venueEyebrow').textContent = c.venue.eyebrow;
+      document.getElementById('venueTitle').textContent = c.venue.title;
+      document.getElementById('venueGrid').innerHTML = c.venue.cards.map(function(v){
+        return '<div class="venue-card">' +
+          '<span class="role">' + esc(v.role) + '</span>' +
+          '<h3 class="serif">' + esc(v.name) + '</h3>' +
+          '<p>' + esc(v.address1) + '</p>' +
+          '<p>' + esc(v.address2) + '</p>' +
+          '<a class="map" href="' + esc(v.mapUrl) + '">Megnyitás térképen →</a>' +
+        '</div>';
+      }).join('');
+
+      document.getElementById('galleryEyebrow').textContent = c.gallery.eyebrow;
+      document.getElementById('galleryTitle').textContent = c.gallery.title;
+      document.getElementById('galleryIntro').textContent = c.gallery.intro;
+      if(c.gallery.images && c.gallery.images.length){
+        document.getElementById('galleryGrid').innerHTML = c.gallery.images.map(function(img){
+          return '<div class="g"><img src="' + esc(img.src) + '" alt="' + esc(img.alt || '') + '" loading="lazy"></div>';
+        }).join('');
+      } else {
+        document.getElementById('galleryGrid').innerHTML = galleryIcons.map(function(i){
+          return '<div class="g">' + i + '</div>';
+        }).join('');
+      }
+
+      document.getElementById('rsvpEyebrow').textContent = c.rsvp.eyebrow;
+      document.getElementById('rsvpTitle').textContent = c.rsvp.title;
+      document.getElementById('rsvpDeadline').textContent = c.rsvp.deadlineText;
+
+      document.getElementById('footerMonogram').innerHTML = esc(c.brandInitials);
+      document.getElementById('footerLine').textContent = c.footer.line;
+
+      startCountdown(c.eventDateTime);
+      observeReveals();
+    }
+
+    function startCountdown(iso){
+      var targetDate = new Date(iso);
+      function updateCountdown(){
+        var now = new Date();
+        var diff = targetDate - now;
+        if(diff < 0) diff = 0;
+        var days = Math.floor(diff / (1000*60*60*24));
+        var hours = Math.floor((diff / (1000*60*60)) % 24);
+        var mins = Math.floor((diff / (1000*60)) % 60);
+        var secs = Math.floor((diff / 1000) % 60);
+        document.getElementById('cd-days').textContent = String(days).padStart(2,'0');
+        document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+        document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+        document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    }
+
+    function observeReveals(){
+      var revealEls = document.querySelectorAll('.reveal');
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold:0.15 });
+      revealEls.forEach(function(el){ io.observe(el); });
+    }
+
+    fetch('content.json?_=' + Date.now())
+      .then(function(r){ if(!r.ok) throw new Error('no content.json'); return r.json(); })
+      .catch(function(){ return fetch('content.default.json').then(function(r){ return r.json(); }); })
+      .then(render)
+      .catch(function(err){ console.error('Nem sikerült betölteni a tartalmat:', err); });
 
     var form = document.getElementById('rsvpForm');
     var formMsg = document.getElementById('formMsg');
